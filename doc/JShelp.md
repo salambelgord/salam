@@ -59,7 +59,7 @@
 - [Scripts activity](#scripts-activity)
 - [Changelog](#changelog)
 
-## Note
+## Примечание
 
 If in the script some modules or functions are used with callbacks or cyclic calls, except setTimeout/setInterval,
 so they will be called again and again even if the new version of script exists or script is deleted. For example the following script:
@@ -93,14 +93,15 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-## Global functions
+## Глобальные функции
+Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
+Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
 You can define the global scripts in the "global" folder.
 All global scripts are available on all instances. If global script is disabled, it will not be used.
 Global script will be just prepend to the normal script and compiled, so you cannot share data between scripts via global scrips. Use states for it.
 
-#### Best practice:
-Create two instances of javascript adapter: one "test" and one "production".
-After the script is tested in the "test" instance, it can be moved to "production". By that you can restart the "test" instance as you want.
+#### Полезный совет:
+Создайте две инстанции драйвера javascript, одну для тестов вторую для рабочей версии. После того как срипт пройдет отладку на тестовой инстанции его можно переместить в рабочую версию. Так вы сможете перезапускать тестовую инстанцию как захотите , без ущерба для рабочей.
 
 ## Following functions can be used in scripts:
 
