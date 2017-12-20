@@ -1,9 +1,9 @@
 ## Содержание
 - [Примечание](#Примечание)
-- [Глобальные функции](#global-functions)
-    - [Полезный совет](#best-practice)
+- [Глобальные функции](#Глобальные функции)
+    - [Полезный совет](#Полезный совет)
 
-- [Функции](#following-functions-can-be-used-in-scripts)
+- [Функции](#Функции)
     - [require - подключить модули](#require---load-some-module)
     - [Buffer-буфер](#buffer)
     - [log - Вывод сообщений в log](#log---gives-out-the-message-into-log)
@@ -96,9 +96,7 @@ to be sure, that no callback will be called if script is deleted or modified.
 ## Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
-You can define the global scripts in the "global" folder.
-All global scripts are available on all instances. If global script is disabled, it will not be used.
-Global script will be just prepend to the normal script and compiled, so you cannot share data between scripts via global scrips. Use states for it.
+
 
 #### Полезный совет:
 Создайте две инстанции драйвера javascript, одну для тестов вторую для рабочей версии. После того как срипт пройдет отладку на тестовой инстанции его можно переместить в рабочую версию. Так вы сможете перезапускать тестовую инстанцию как захотите , без ущерба для рабочей.
