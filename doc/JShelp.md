@@ -139,7 +139,7 @@ exec('ls /var/log', function (error, stdout, stderr) {
 
 ### on - Subscribe on changes or updates of some state
     on(pattern, callbackOrId, value)
-![Control state](img/IMG_20170701_193721.jpg )
+(img/IMG_20170701_193721.jpg )
  
 The callback function will return the object as parameter with following content:
 ```
