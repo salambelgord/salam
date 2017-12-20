@@ -7,7 +7,7 @@
     - [require - подключить модули](#require---load-some-module)
     - [Buffer-буфер](#buffer)
     - [log - Вывод сообщений в log](#log---gives-out-the-message-into-log)
-    - [exec - execute some OS command, like "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
+    - [exec - выполнение команд ОС, например "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Подписаться на изменения или обновления состояния.](#on---subscribe-on-changes-or-updates-of-some-state)
     - [subscribe - то же что и  on](#subscribe---same-as-on)
     - [unsubscribe- отписаться](#unsubscribe)
@@ -139,7 +139,7 @@ exec('ls /var/log', function (error, stdout, stderr) {
 
 ### on - Subscribe on changes or updates of some state
     on(pattern, callbackOrId, value)
-(img/IMG_20170701_193721.jpg )
+![Control state](img/on_state.jpg )
  
 The callback function will return the object as parameter with following content:
 ```
