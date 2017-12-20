@@ -1,9 +1,9 @@
 ## Содержание
-- [Примечание](#Примечание)
-- [Глобальные функции](#Глобальные функции)
-    - [Полезный совет](#Полезный совет)
+- [Примечание](#1.Примечание)
+- [Глобальные функции](#2.0 Глобальные функции)
+    - [Полезный совет](#2.1 Полезный совет)
 
-- [Функции](#Функции)
+- [Функции](#3.Функции)
     - [require - подключить модули](#require---load-some-module)
     - [Buffer-буфер](#buffer)
     - [log - Вывод сообщений в log](#log---gives-out-the-message-into-log)
@@ -59,7 +59,7 @@
 - [Scripts activity](#scripts-activity)
 - [Changelog](#changelog)
 
-## Примечание
+## 1.Примечание
 
 If in the script some modules or functions are used with callbacks or cyclic calls, except setTimeout/setInterval,
 so they will be called again and again even if the new version of script exists or script is deleted. For example the following script:
@@ -93,12 +93,12 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-## Глобальные функции
+## 2.0 Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
 
 
-#### Полезный совет:
+#### 2.1 Полезный совет:
 Создайте две инстанции драйвера javascript, одну для тестов вторую для рабочей версии. После того как срипт пройдет отладку на тестовой инстанции его можно переместить в рабочую версию. Так вы сможете перезапускать тестовую инстанцию как захотите , без ущерба для рабочей.
 
 ## Following functions can be used in scripts:
