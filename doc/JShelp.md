@@ -93,7 +93,7 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-## Глобальные функции
+# Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
 
