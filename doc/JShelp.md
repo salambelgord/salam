@@ -103,7 +103,7 @@ to be sure, that no callback will be called if script is deleted or modified.
 
 ## Возможные функции:
 
-### require - подключить модули
+### **require** -- подключить модули
     var mod = require('module_name');
 Следующие модули установлены по умолчанию: fs, crypto, wake_on_lan, request, suncalc, util, path, os, net, events, dns.
 Чтоб использовать другие модули нужно зайти в папку *iobroker/adapter/javascript* и запустить из консоли нужный модуль.
@@ -121,24 +121,24 @@ npm install ping
 ### Буфер
 Buffer - Документация по использованию Buffer в Node.js  [Читай здесь](http://nodejs.org/api/buffer.html)
 
-### log - Вывод сообщений в  log
+### **log** - Вывод сообщений в  **log**
     log(msg, sev)
 Message is a string and sev is one of the following: 'debug', 'info', 'warn', 'error'.
 Default severity is ***'info'***
 
-### exec - execute some OS command, like "cp file1 file2"
+### **exec** - выполнение команд ОС , например... **"cp file1 file2"**
     exec (cmd, callback)
+Где:  **cmd**-команда 
+        **callback**-вывод
+[То же в blockly..](https://github.com/ioBroker/ioBroker.javascript/blob/master/doc/ru/blockly.md#exec---%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)
 
-Execute system command and get the outputs.
->*Например:*
-
+>*Например:*     
 ```javascript
-// reboot linux system :)
+// Перегрузить ОС linux  :)
 exec('reboot');
-
-// Get the list of files and directories in /var/log
+// Получить список файлов и папок в директории  /var/log
 exec('ls /var/log', function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
+    console.log('Вывод: ' + stdout);
 });
 ```
 
@@ -383,13 +383,14 @@ Example of result:
 }
 ```
 
-### schedule
+### schedule - расписание
     schedule (pattern, callback)
-
-Time scheduler with astro-funktion.
-
-#### Time schedule
-Pattern can be a string with [Cron-Syntax](http://en.wikipedia.org/wiki/Cron), e.G.:
+   >Где  **pattern** - заданое расписание
+    **callback**-вывод  
+[То же в blockly...](https://github.com/ioBroker/ioBroker.javascript/blob/master/doc/ru/blockly.md#%D0%A0%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5)
+Расписание с функцией астрономического времени.
+#### Расписание по времени
+Шаблон расписания [Cron-Syntax](http://en.wikipedia.org/wiki/Cron), e.G.:
 
      # *  *  * *  *  command to execute
      # │ │ │ │ │
@@ -1092,4 +1093,5 @@ It is because the adapter does not have the value of state in RAM and must ask c
 
 There is a possibility to enabled and disable scripts via states. For every script the state will be created with name **javascript.INSTANCE.scriptEnabled.SCRIPT_NAME**.
 Scripts can be activated and deactivated by controlling of this state with ack=false.
+
 
