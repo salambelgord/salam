@@ -447,7 +447,7 @@ schedule({astro: "sunset", shift: 10}, function () {
 ```
 The attribute "shift" is the offset in minutes. It can be negative too, to define time before astro event.
 
-Following values can be used as attribute in astro-function:
+Следующие атрибуты используются в функции:
 
 - sunrise: Восход (top edge of the sun appears on the horizon)
 - sunriseEnd: конец восхода (солнце нижнем краем оторвалось от горизонта)
@@ -465,7 +465,9 @@ Following values can be used as attribute in astro-function:
 - nadir: nadir (darkest moment of the night, sun is in the lowest position)
 
 >**Ремарка:** Чтобы использовать функцию астрономического времени, значение широты и долготы должны быть указаны в настройка драйвера javascript.
+
 ![Astro seting]( salam/doc/img/astro_img.png )
+
 **Note:** On some places sometines it could be so, that no night/nightEnd exists. Please read [here](https://github.com/mourner/suncalc/issues/70) about it.
 
 **Note:** you can use "on" function for schedule with small modification:
