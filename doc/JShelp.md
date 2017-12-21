@@ -114,8 +114,9 @@ npm install ping
 После удачной установки модуль можно использовать в скриптах.
 
 >*Ремарка* - модуль *request* is available via variable *request*. There is no need to write
-```javascript var request = require('request');```.
 
+```javascript var request = require('request');```.
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 ### Буфер
 Buffer - Документация по использованию Buffer в Node.js  [Читай здесь](http://nodejs.org/api/buffer.html)
 
@@ -140,7 +141,7 @@ exec('ls /var/log', function (error, stdout, stderr) {
 ```
 
 **Notice:** you must enable *Enable command "setObject"* option to call it.
-
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 ### on - Subscribe on changes or updates of some state
     on(pattern, callbackOrId, value)
 ![Control state](img/on_state.jpg )
