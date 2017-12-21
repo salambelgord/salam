@@ -466,7 +466,7 @@ The attribute "shift" is the offset in minutes. It can be negative too, to defin
 
 >**Ремарка:** Чтобы использовать функцию астрономического времени, значение широты и долготы должны быть указаны в настройка драйвера javascript.
 
-![Astro seting]( salam/doc/img/astro_img.png )
+![Astro seting](img/astro_img.png )
 
 **Note:** On some places sometines it could be so, that no night/nightEnd exists. Please read [here](https://github.com/mourner/suncalc/issues/70) about it.
 
