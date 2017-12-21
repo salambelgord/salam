@@ -92,7 +92,7 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-#[*UP- ☝*](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 ## Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
@@ -108,12 +108,12 @@ to be sure, that no callback will be called if script is deleted or modified.
 Следующие модули установлены по умолчанию: fs, crypto, wake_on_lan, request, suncalc, util, path, os, net, events, dns.
 Чтоб использовать другие модули нужно зайти в папку *iobroker/adapter/javascript* и запустить из консоли нужный модуль.
 
-*Например:*
->npm install ping
+>*Например:*
+npm install ping
 
 После удачной установки модуль можно использовать в скриптах.
 
-*Ремарка* - модуль *request* is available via variable *request*. There is no need to write
+>*Ремарка* - модуль *request* is available via variable *request*. There is no need to write
 ```javascript var request = require('request');```.
 
 ### Буфер
@@ -129,7 +129,7 @@ Default severity is ***'info'***
 
 Execute system command and get the outputs.
 
-```
+```javascript
 // reboot linux system :)
 exec('reboot');
 
