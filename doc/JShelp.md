@@ -76,7 +76,6 @@ so they will be called again and again even if the new version of script exists 
           log('problem with request: ' + e.message, 'error');
     });
 ```
-https://github.com/salambelgord/salam/blob/master/doc/JShelp.md#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5
 was deleted by user before callback returns. The callback will be executed anyway. To fix this feature **restart** the javascript adapter.
 
 You can use "cb" function to wrap you callback, like this
@@ -93,7 +92,7 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-[# UP- ☝](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+#[*UP- ☝*](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 ## Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
@@ -108,15 +107,17 @@ to be sure, that no callback will be called if script is deleted or modified.
     var mod = require('module_name');
 Следующие модули установлены по умолчанию: fs, crypto, wake_on_lan, request, suncalc, util, path, os, net, events, dns.
 Чтоб использовать другие модули нужно зайти в папку *iobroker/adapter/javascript* и запустить из консоли нужный модуль.
+
 *Например:*
 >npm install ping
+
 После удачной установки модуль можно использовать в скриптах.
 
-
-**Заметка** - модуль *request* is available via variable *request*. There is no need to write ```javascriptvar request = require('request');```.
+*Ремарка* - модуль *request* is available via variable *request*. There is no need to write
+```javascript var request = require('request');```.
 
 ### Буфер
-Buffer - Node.js Buffer, read here [http://nodejs.org/api/buffer.html](http://nodejs.org/api/buffer.html)
+Buffer - Документация по использованию Buffer в Node.js  [Читай здесь](http://nodejs.org/api/buffer.html)
 
 ### log - Вывод сообщений в  log
     log(msg, sev)
