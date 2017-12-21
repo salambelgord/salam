@@ -1,10 +1,10 @@
 ## Содержание
 - [Примечание](#1.Примечание)
-- [Глобальные функции](# Function)
-    - [Полезный совет](# Note)
+- [Глобальные функции](# Глобальные функции)
+    - [Полезный совет](# Полезный совет)
 
 - [Функции](# Функции)
-    - [require - подключить модули](#require---load-some-module)
+    - [require - подключить модули](#require---подключить модули)
     - [Buffer-буфер](#buffer)
     - [log - Вывод сообщений в log](#log---gives-out-the-message-into-log)
     - [exec - выполнение команд ОС, например "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
@@ -93,17 +93,17 @@ http.request('www.google.com', cb(function(res) {
 ```
 to be sure, that no callback will be called if script is deleted or modified.
 
-## Function
+## Глобальные функции
 Вы можете определить глобальные скрипты в папке "global". Все скрипты в папке "global" доступны во всех драйверах(инстанциях).
 Если скрипт в папке "global" отключен (неактивный) , вы не сможете его использовать.
 
 
-#### Note:
+#### Полезный совет
 Создайте две инстанции драйвера javascript, одну для тестов вторую для рабочей версии. После того как срипт пройдет отладку на тестовой инстанции его можно переместить в рабочую версию. Так вы сможете перезапускать тестовую инстанцию как захотите , без ущерба для рабочей.
 
 ## Following functions can be used in scripts:
 
-### require - load some module
+### require - подключить модули
     var mod = require('module_name');
 Following modules are pre-loaded: fs, crypto, wake_on_lan, request, suncalc, util, path, os, net, events, dns.
 
