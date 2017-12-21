@@ -1,7 +1,7 @@
 ## Содержание
-- [# Примечание](# Примечание)
-- [## Глобальные функции](## Глобальные функции)
-    - [Полезный совет](#### Полезный совет)
+ [Примечание](# Примечание)
+ [Глобальные функции](## Глобальные функции)
+      [Полезный совет](#### Полезный совет)
 
 - [Функции](# Функции)
     - [require - подключить модули](###require---подключить модули)
@@ -81,7 +81,7 @@ was deleted by user before callback returns. The callback will be executed anywa
 
 You can use "cb" function to wrap you callback, like this
 
-```
+```javascript
 http.request('www.google.com', cb(function(res) {
       res.setEncoding('utf8');
       res.on('data', function (chunk) {
