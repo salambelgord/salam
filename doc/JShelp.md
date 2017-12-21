@@ -9,10 +9,10 @@
     - [log - Вывод сообщений в log](#log---%D0%92%D1%8B%D0%B2%D0%BE%D0%B4-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B2--log)
     - [exec - выполнение команд ОС, например "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Подписаться на изменения или обновления состояния.](#on---subscribe-on-changes-or-updates-of-some-state)
-    - [subscribe - то же что и  on](#subscribe---same-as-on)
-    - [unsubscribe- отписаться](#unsubscribe)
+    - [subscribe - то же что и  on](#subscribe---%D1%82%D0%BE%D0%B6%D0%B5-%D1%87%D1%82%D0%BE-%D0%B8--on)
+    - [unsubscribe- отписаться](#unsubscribe-%D0%BE%D1%82%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F)
     - [getSubscriptions](#getsubscriptions)
-    - [schedule-расписание](#schedule)
+    - [schedule-расписание](#schedule---%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5)
         - [Time schedule-расписание по времени](#time-schedule)
         - [Astro- функция ](#astro--function)
 
@@ -217,8 +217,8 @@ on('adapter.0.device.channel.sensor', function (obj) {
 });
 ```
 
-You can use following parameters to specify the trigger:
-Можно использовать следующие параметры:
+
+Можно использовать тригер следующие параметры:
 
 | parameter   | type/value | description                                                                                            |
 |-----------  |-------     |-------------------                                                                                     |
@@ -327,18 +327,18 @@ on({id: /^system\.adapter\..*\.\d+\.memRss$/, change: "ne"}, function (obj) {
 });
 ```
 
-To simply connect two states with each other, write:
+
+Записывать состояние одного в другой:
 ```
 on('stateId1', 'stateId2');
 ```
 
-All changes of *stateId1* will be written to *stateId2*.
-
+Все изменения состояния *stateId1* будет записано в *stateId2*.
 Please note, that by default "change" is equal to "any", except when only id as string is set (like ```on("id", function (){});```). In last case change will be set to "ne".
 
 Function "on" returns handler back. This handler can be used by unsubscribe.
 
-### subscribe - тоже что и  **[on](#on---subscribe-on-changes-or-updates-of-some-state)**
+### subscribe - тоже что и  **[on](#on---%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F-%D0%BD%D0%B0-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)**
 
 ### unsubscribe-отписаться
     unsubscribe(id or handler)
@@ -350,7 +350,7 @@ Function "on" returns handler back. This handler can be used by unsubscribe.
 var mySubscription = on({id: "javascript.0.myState", change: 'any'}, function (data) {
     // unsubscribe after first trigger
     if (unsubscribe(mySubscription)) {
-        log('Subscription deleted');
+        log('Все подписки удалены.');
     }
 });
 
@@ -362,7 +362,7 @@ on({id: "javascript.0.myState1", change: 'ne'}, function (data) {
 on({id: "javascript.0.myState1", change: 'any'}, function (data) {
     // unsubscribe
     if (unsubscribe("javascript.0.myState1")) {
-        log('Все подписки удаленны.');
+        log('Все подписки удалены.');
     }
 });
 ```
@@ -371,6 +371,7 @@ on({id: "javascript.0.myState1", change: 'any'}, function (data) {
 Получить  список подписчиков.
 
 Example of result:
+Результат примера:
 ```javascript
 {
 	"megad.0.dataPointName" : [
@@ -412,44 +413,44 @@ Pattern can be an object, it is used especially if seconds are required:
 
 ```
 schedule({second: [20, 25]}, function () {
-    log("Will be triggered at xx:xx:20 and xx:xx:25 of every minute!");
+    log("Тригер сработает с xx:xx:20 по xx:xx:25 сек каждой минуты!");
 });
 
 schedule({hour: 12, minute: 30}, function () {
-    log("Will be triggered at 12:30!");
+    log("Тригер сработает в 12:30!");
 });
 ```
 Pattern can be a Javascript Date object (some specific time point) - in this case only it will be triggered only one time.
 
 **Note:** the newest version of schedule supports seconds too, so you can specify:
 
-```
+```javascript
 schedule("*/2 * * * * *", function () {
-    log("Will be triggered every 2 seconds!");
+    log("Тригер сработает каждую 2-ю сек!");
 });
 ```
 
-to trigger every second second.
+
 
 #### Astro- function
 
-Astro-function can be used via "astro" attribute:
+Astro-function функция астрономического времени используется с "astro" атрибутами:
 
 ```
 schedule({astro: "sunrise"}, function () {
-    log("Sunrise!");
+    log("Восход!");
 });
 
 schedule({astro: "sunset", shift: 10}, function () {
-    log("10 minutes after sunset!");
+    log("10 минут после заката!");
 });
 ```
 The attribute "shift" is the offset in minutes. It can be negative too, to define time before astro event.
 
 Following values can be used as attribute in astro-function:
 
-- sunrise: sunrise (top edge of the sun appears on the horizon)
-- sunriseEnd: sunrise ends (bottom edge of the sun touches the horizon)
+- sunrise: Восход (top edge of the sun appears on the horizon)
+- sunriseEnd: конец восхода (солнце нижнем краем оторвалось от горизонта)
 - goldenHourEnd: morning golden hour (soft light, best time for photography) ends
 - solarNoon: solar noon (sun is in the highest position)
 - goldenHour: evening golden hour starts
@@ -463,8 +464,8 @@ Following values can be used as attribute in astro-function:
 - dawn: dawn (morning nautical twilight ends, morning civil twilight starts)
 - nadir: nadir (darkest moment of the night, sun is in the lowest position)
 
-**Note:** to use "astro"-function the "latitude" and "longitude" must be defined in javascript adapter settings.
-
+>**Ремарка:** Чтобы использовать функцию астрономического времени, значение широты и долготы должны быть указаны в настройка драйвера javascript.
+![Astro seting]( salam/doc/img/astro_img.png )
 **Note:** On some places sometines it could be so, that no night/nightEnd exists. Please read [here](https://github.com/mourner/suncalc/issues/70) about it.
 
 **Note:** you can use "on" function for schedule with small modification:
