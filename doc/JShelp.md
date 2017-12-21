@@ -129,7 +129,8 @@ Default severity is ***'info'***
 ### **exec** - выполнение команд ОС , например... **"cp file1 file2"**
     exec (cmd, callback)
 Где:  **cmd**-команда 
-        **callback**-вывод
+        **callback**-фу́нкция обра́тного вы́зова
+        
 [То же в blockly..](https://github.com/ioBroker/ioBroker.javascript/blob/master/doc/ru/blockly.md#exec---%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)
 
 >*Например:*     
@@ -145,12 +146,12 @@ exec('ls /var/log', function (error, stdout, stderr) {
 >*Ремарка*- you must enable *Enable command "setObject"* option to call it.
 
 [**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
-### on - Subscribe on changes or updates of some state
+### on - подписаться на изменение 
     on(pattern, callbackOrId, value)
 ![Control state](img/on_state.jpg )
  
-The callback function will return the object as parameter with following content:
-```
+Фу́нкция обра́тного вы́зова (колбэк) возвращает объект со следующими параметрами:
+```javascript
     {
     	'_id' : 'javascript.0.myplayer',
     	'type' : 'state',
@@ -189,24 +190,25 @@ The callback function will return the object as parameter with following content
     	}
     }
 ```
-**Note:** early was *newState* instead of *state*. It is still working.
+>**Ремарка:**  в ранних версиях  значение  **newState** заменили на **state**. 
+>Но оно все еще работает.
 
-Example:
-```
+>*Например*:
+```javascript
 var timer;
 
-// Create state "javascript.0.counter"
+// Создаем состояние "javascript.0.counter" со значением 0
 createState('counter', 0);
 
-// On change
+// Подписуемся на изменения
 on('adapter.0.device.channel.sensor', function (obj) {
-    // But not ofter than 30 seconds
+    // Не чаще  30 sec
     if (!timer) {
         timer = setTimeout(function () {
             timer = null;
         }, 30000);
 
-        // Set acknowledged value
+        // Подтверждаем значение
         setState('counter', 1 + getState('counter'), true/*ack*/);
 
         // Or to set unacknowledged command
@@ -216,7 +218,7 @@ on('adapter.0.device.channel.sensor', function (obj) {
 ```
 
 You can use following parameters to specify the trigger:
-
+Можно использовать следующие параметры:
 | parameter   | type/value | description                                                                                            |
 |-----------  |-------     |-------------------                                                                                     |
 | logic       | string     |       "and" or "or" logic to combine the conditions \(default: "and"\)                                 |
@@ -301,11 +303,10 @@ You can use following parameters to specify the trigger:
 | fromNe      | string     |       New value is not from defined adapter                                                            |
 | oldFrom     | string     |       Old value is from defined adapter                                                                |
 | oldFromNe   | string     |       Old value is not from defined adapter                                                            |
+>**Например:**
+Тригер для все ID  с именем *******.STATE если они подтвержденные и имеют значение "true".
 
-Examples:
-Trigger on all states with ID '*.STATE' if they are acknowledged and have new value "true".
-
-```
+```javascript
 {
     id: /\.STATE$/,
     val: true,
@@ -314,13 +315,13 @@ Trigger on all states with ID '*.STATE' if they are acknowledged and have new va
 }
 ```
 
-**Note:** you can use RegExp directly:
+>**Ремарка:** Вы можете использовать  RegExp непосредственно :
 
-```
+```javascript
 on(/^system\.adapter\..*\.\d+\.memRss$/, function (obj) {
 });
 
-// same as
+// так же
 on({id: /^system\.adapter\..*\.\d+\.memRss$/, change: "ne"}, function (obj) {
 });
 ```
@@ -336,14 +337,14 @@ Please note, that by default "change" is equal to "any", except when only id as 
 
 Function "on" returns handler back. This handler can be used by unsubscribe.
 
-### subscribe - same as **[on](#on---subscribe-on-changes-or-updates-of-some-state)**
+### subscribe - тоже что и  **[on](#on---subscribe-on-changes-or-updates-of-some-state)**
 
-### unsubscribe
+### unsubscribe-отписаться
     unsubscribe(id or handler)
 
-Remove all subscriptions for given object ID or for given handler.
+Удалить все подписки на обьект ID
 
-```
+```javascript
 // By handler
 var mySubscription = on({id: "javascript.0.myState", change: 'any'}, function (data) {
     // unsubscribe after first trigger
@@ -360,16 +361,16 @@ on({id: "javascript.0.myState1", change: 'ne'}, function (data) {
 on({id: "javascript.0.myState1", change: 'any'}, function (data) {
     // unsubscribe
     if (unsubscribe("javascript.0.myState1")) {
-        log('All subscriptions deleted');
+        log('Все подписки удаленны.');
     }
 });
 ```
 
 ### getSubscriptions
-Get the list of subscriptions.
+Получить  список подписчиков.
 
 Example of result:
-```
+```javascript
 {
 	"megad.0.dataPointName" : [
 		{
@@ -401,9 +402,9 @@ Example of result:
      # │ └──────────────────── hour (0 - 23)
      # └───────────────────────── min (0 - 59)
 
-```
+```javascript
 schedule("*/2 * * * *", function () {
-    log("Will be triggered every 2 minutes!");
+    log("Тригер сработает каждые 2 минуты!");
 });
 ```
 Pattern can be an object, it is used especially if seconds are required:
