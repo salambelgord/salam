@@ -216,6 +216,7 @@ on('adapter.0.device.channel.sensor', function (obj) {
     }
 });
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 
 Можно использовать тригер следующие параметры:
@@ -307,6 +308,8 @@ on('adapter.0.device.channel.sensor', function (obj) {
 >**Например:**
 Тригер для все ID  с именем *******.STATE если они подтвержденные и имеют значение "true".
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+
 ```javascript
 {
     id: /\.STATE$/,
@@ -338,6 +341,8 @@ Please note, that by default "change" is equal to "any", except when only id as 
 
 Function "on" returns handler back. This handler can be used by unsubscribe.
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+
 ### subscribe - тоже что и  **[on](#on---%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F-%D0%BD%D0%B0-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)**
 
 ### unsubscribe-отписаться
@@ -366,6 +371,8 @@ on({id: "javascript.0.myState1", change: 'any'}, function (data) {
     }
 });
 ```
+
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### getSubscriptions
 Получить  список подписчиков.
@@ -430,7 +437,7 @@ schedule("*/2 * * * * *", function () {
 });
 ```
 
-
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 #### Astro- function
 
@@ -446,6 +453,23 @@ schedule({astro: "sunset", shift: 10}, function () {
 });
 ```
 The attribute "shift" is the offset in minutes. It can be negative too, to define time before astro event.
+
+Следующие значения могут использоваться в качестве атрибута астро-функции:
+  
+- sunrise: восход (верхний край солнца появляется на горизонте)
+- sunriseEnd: восход солнца заканчивается (нижний край солнца касается горизонта)
+- goldenHourEnd: конец «золотого часа» (мягкий свет, наиболее подходящее время для фотографии)
+- solarNoon: солнечный полдень (солнце находится в наивысшей точке)
+- goldenHour: начало «золотого часа»
+- sunsetStart:  начало заката (нижний край солнца касается горизонта)
+- sunset: закат (солнце полностью заходит за горизонт, начинаются вечерние гражданские сумерки)
+- dusk: начало вечерних навигационных сумерек (время, когда уже достаточно темно, но всё еще можно ориентироваться по горизонту в море)
+- nauticalDusk:  начало вечерних астрономических сумерек (визуально темно, но недостаточно для астрономических наблюдений)
+- night: начало ночи (достаточно темно для большинства астрономических наблюдений)
+- nightEnd: конец ночи (и начало утренних астрономических сумерек)
+- nauticalDawn: начало утренних навигационных сумерек
+- dawn: утренняя заря (начало утренних гражданских сумерек)
+- nadir: надир (самый темный момент ночи, солнце находится в самом низком положении)
 
 Следующие атрибуты используются в функции:
 
@@ -464,7 +488,7 @@ The attribute "shift" is the offset in minutes. It can be negative too, to defin
 - dawn: dawn (morning nautical twilight ends, morning civil twilight starts)
 - nadir: nadir (darkest moment of the night, sun is in the lowest position)
 
->**Ремарка:** Чтобы использовать функцию астрономического времени, значение широты и долготы должны быть указаны в настройка драйвера javascript.
+>**Ремарка:** Чтобы использовать функцию астрономического времени, значение широты и долготы необходимо указать в настройка драйвера javascript.
 
 ![Astro seting](img/astro_img.png )
 
@@ -484,6 +508,7 @@ on({astro: "sunset", shift: 10}, function () {
     log((new Date()).toString() + " - 10 minutes after sunset!");
 });
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### clearSchedule
 If **no** "astro" function used you can cancel the schedule later. To allow this the schedule object must be saved:
@@ -536,6 +561,7 @@ You can use astro-names for the time definition. All 3 parameters can be set as 
 Following values are possible: 'sunrise', 'sunset', 'sunriseEnd', 'sunsetStart', 'dawn', 'dusk', 'nauticalDawn', 'nauticalDusk', 'nightEnd', 'night', 'goldenHourEnd', 'goldenHour'.
 See [Astro](#astro--function) for detail.
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ```
 console.log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -556,6 +582,8 @@ Structure of astro object.
         date:   new Date()   // optional
     }
 ```
+
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### setState
     setState (id, state, ack, callback)
@@ -589,6 +617,7 @@ Clears all delayed tasks for specified state ID or some specific delayed task.
     clearStateDelayed('Kitchen.Light.Lamp', timer); // Nothing will be switched on
     clearStateDelayed('Kitchen.Light.Lamp'); // Clear all running delayed tasks for this ID
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### getStateDelayed
     getStateDelayed (id)
@@ -633,6 +662,7 @@ getStateDelayed(3)
 =>
 {id: "hm-rpc.0.LQE91119.2.LEVEL", left: 5679, delay: 10000, val: 100,  ack: false}
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### getState
     getState (id)
@@ -662,6 +692,7 @@ setObject('adapter.N.objectName', obj, function (err) {
     if (err) log('Cannot write object: ' + err);
 });
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### extendObject
     extendObject(id, obj, callback)
@@ -698,6 +729,7 @@ getEnums('rooms') =>
     }
 ]
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### createState
     createState(name, initialValue, forceCreation, common, native, callback)
@@ -724,6 +756,8 @@ It is possible short type of createState:
     Delete state and object in javascript space, e.g. "javascript.0.mystate". The foreign state cannot be deleted.
 
 ``` deleteState('myVariable')_ - simply delete variable if exists```
+
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### sendTo
     sendTo (adapter, command, message, callback)
@@ -770,6 +804,8 @@ sendToHost('myComputer', cmdExec, 'ls /', function (res) {
 
 **Notice:** you must enable *Enable command "setObject"* option to call it.
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+
 ### setInterval
     setInterval (callback, ms, arg1, arg2, arg3, arg4)
 Same as javascript ***setInterval***.
@@ -788,6 +824,8 @@ Same as javascript ***clearTimeout***.
 
 ### formatDate
     formatDate (millisecondsOrDate, format)
+
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 #### Parameters:
 
@@ -824,6 +862,8 @@ Same as javascript ***clearTimeout***.
   formatDate(new Date(), "W") => Day of week "Tu"
 ´´´
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+
 ### getDateObject
     getDateObject (stringOrNumber)
 Converts string or number to Date object.
@@ -840,6 +880,7 @@ Format is optional:
  - ',.': 1234.567 => 1,234.56
  - ' .': 1234.567 => 1 234.56
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### adapterSubscribe
     adapterSubscribe(id)
@@ -907,6 +948,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each(function (id,
     if (i == 1) return false;
 });
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### readFile
     readFile (adapter, fileName, function (error, bytes) {})
@@ -960,6 +1002,7 @@ writeFile('vis.0', '/screenshots/1.png', data, function (error) {
     console.log('file written');
 });
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### delFile
     delFile (adapter, fileName, function (error) {})
@@ -986,6 +1029,8 @@ onStop(function (callback) {
 }, 2000 /*ms*/);
 ```
 *timeout* is default 1000ms.
+
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### getHistory
     getHistory (instance, options, function (error, result, options, instance) {});
@@ -1032,6 +1077,8 @@ getHistory({
 
 **Note: ** of course history must be first enabled for selected ID in admin.
 
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
+
 ### runScript
     runScript('scriptName')
 
@@ -1059,6 +1106,7 @@ If stopScript is called without arguments, it will stop itself:
 ```
 stopScript();
 ```
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
 ### isScriptActive
     isScriptActive('scriptName')
@@ -1099,4 +1147,4 @@ It is because the adapter does not have the value of state in RAM and must ask c
 There is a possibility to enabled and disable scripts via states. For every script the state will be created with name **javascript.INSTANCE.scriptEnabled.SCRIPT_NAME**.
 Scripts can be activated and deactivated by controlling of this state with ack=false.
 
-
+[**UP- ☝**](#%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
