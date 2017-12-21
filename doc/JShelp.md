@@ -219,6 +219,7 @@ on('adapter.0.device.channel.sensor', function (obj) {
 
 You can use following parameters to specify the trigger:
 Можно использовать следующие параметры:
+
 | parameter   | type/value | description                                                                                            |
 |-----------  |-------     |-------------------                                                                                     |
 | logic       | string     |       "and" or "or" logic to combine the conditions \(default: "and"\)                                 |
