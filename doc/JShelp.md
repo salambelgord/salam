@@ -1,7 +1,7 @@
 ## Содержание
-- [Примечание](#1.Примечание)
-- [Глобальные функции] (## Глобальные функции)
-    - [Полезный совет] (#### Полезный совет)
+- [Примечание](# Примечание)
+- [Глобальные функции](## Глобальные функции)
+    - [Полезный совет](#### Полезный совет)
 
 - [Функции](# Функции)
     - [require - подключить модули](###require---подключить модули)
@@ -59,7 +59,7 @@
 - [Scripts activity](#scripts-activity)
 - [Changelog](#changelog)
 
-## 1.Примечание
+## Примечание
 
 If in the script some modules or functions are used with callbacks or cyclic calls, except setTimeout/setInterval,
 so they will be called again and again even if the new version of script exists or script is deleted. For example the following script:
