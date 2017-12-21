@@ -101,7 +101,7 @@ to be sure, that no callback will be called if script is deleted or modified.
 #### Полезный совет
 Создайте две инстанции драйвера javascript, одну для тестов вторую для рабочей версии. После того как срипт пройдет отладку на тестовой инстанции его можно переместить в рабочую версию. Так вы сможете перезапускать тестовую инстанцию как захотите , без ущерба для рабочей.
 
-## Following functions can be used in scripts:
+## Возможные функции:
 
 ### require - подключить модули
     var mod = require('module_name');
@@ -109,12 +109,12 @@ Following modules are pre-loaded: fs, crypto, wake_on_lan, request, suncalc, uti
 
 To use other modules go to iobroker/adapter/javascript folder and run in console npm install <modulename>. After npm successfully finished it can be used in script engine.
 
-**Notice** - module *request* is available via variable *request*. There is no need to write ```var request = require('request');```.
+**Заметка** - module *request* is available via variable *request*. There is no need to write ```var request = require('request');```.
 
-### Buffer
+### Буфер
 Buffer - Node.js Buffer, read here [http://nodejs.org/api/buffer.html](http://nodejs.org/api/buffer.html)
 
-### log - Gives out the message into log
+### log - Вывод сообщений в  log
     log(msg, sev)
 Message is a string and sev is one of the following: 'debug', 'info', 'warn', 'error'.
 Default severity is ***'info'***
