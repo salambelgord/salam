@@ -150,7 +150,7 @@ exec('ls /var/log', function (error, stdout, stderr) {
     on(pattern, callbackOrId, value)
 ![Control state](img/on_state.jpg )
  
-Фу́нкция обра́тного вы́зова (колбэк) возвращает объект со следующими параметрами:
+Фу́нкция обра́тного вы́зова (колбэк) возвращает значения со следующими параметрами:
 ```javascript
     {
     	'_id' : 'javascript.0.myplayer',
