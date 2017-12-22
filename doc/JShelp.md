@@ -4,7 +4,7 @@
       - [Полезный совет](#%D0%9F%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8B%D0%B9-%D1%81%D0%BE%D0%B2%D0%B5%D1%82)
 
 - [Возможные функции](#%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8)
-    - [require - подключить модули](#require---%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8)
+    - [require - подключить модули](#require----%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8)
     - [Buffer-буфер](#%D0%91%D1%83%D1%84%D0%B5%D1%80)
     - [log - Вывод сообщений в log](#log---%D0%92%D1%8B%D0%B2%D0%BE%D0%B4-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B2--log)
     - [exec - выполнение команд ОС, например "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
@@ -131,7 +131,7 @@ Default severity is ***'info'***
 Где:  **cmd**-команда 
         **callback**-фу́нкция обра́тного вы́зова
         
-[То же в blockly..](https://github.com/ioBroker/ioBroker.javascript/blob/master/doc/ru/blockly.md#exec---%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)
+[То же в blockly..](https://github.com/salambelgord/ioBroker.javascript/blob/master/doc/ru/blockly.md#exec---%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5)
 
 >*Например:*     
 ```javascript
